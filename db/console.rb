@@ -16,5 +16,15 @@ album2 = Album.new({'title' => 'Without Fear', 'genre' => 'Folk/Pop', 'artist_id
 album1.save
 album2.save
 
+# artist1.name = "James Blake"
+# artist1.update
+#
+# album1.title = "Assume Form"
+# album1.update
+
+
+
+
+
 binding.pry
 nil

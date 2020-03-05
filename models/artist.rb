@@ -20,17 +20,6 @@ class Artist
         @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
-  def self.delete_all
-    sql = "DELETE FROM artists"
-    SqlRunner.run(sql)
-  end
-
-  def self.find_all
-    sql = "SELECT * FROM artists"
-    results = SqlRunner.run(sql)
-    return results.map { |result| Artist.new(result)}
-  end
-
   def find_album
     sql = "SELECT * FROM albums WHERE id = $1"
     values = [@id]
@@ -50,6 +39,16 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  def self.delete_all
+    sql = "DELETE FROM artists"
+    SqlRunner.run(sql)
+  end
+
+  def self.find_all
+    sql = "SELECT * FROM artists"
+    results = SqlRunner.run(sql)
+    return results.map { |result| Artist.new(result)}
+  end
 
   def self.find_by_id(id)
     sql = "SELECT * FROM artists WHERE id = $1"
